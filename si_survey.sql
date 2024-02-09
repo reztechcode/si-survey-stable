@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 09 Feb 2024 pada 07.50
+-- Waktu pembuatan: 09 Feb 2024 pada 08.07
 -- Versi server: 11.1.2-MariaDB-log
 -- Versi PHP: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `si_survey`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
@@ -62,8 +62,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nik`, `nama`, `alamat`, `username`, `password`, `role`, `update_at`, `created_at`) VALUES
-(32, 32027001, NULL, NULL, 'admin', '$2y$10$jDIyzpMV6TTX2rMylEPH0e336sBqYOqzbTjJG1V47eQNZRLvPAs1i', 'user', '2024-02-09 07:49:44', '2024-02-09 07:49:44'),
-(33, 3202780384, NULL, NULL, 'user', '$2y$10$nqAcRI3eFCqoH6yUtq66K.ASjS5yPOfATtAaIQzpAjReGLxb3HdHS', 'user', '2024-02-09 07:50:33', '2024-02-09 07:50:33');
+(1, 32027001, NULL, NULL, 'admin', '$2y$10$jDIyzpMV6TTX2rMylEPH0e336sBqYOqzbTjJG1V47eQNZRLvPAs1i', 'admin', '2024-02-09 07:49:44', '2024-02-09 07:49:44'),
+(2, 3202780384, NULL, NULL, 'user', '$2y$10$nqAcRI3eFCqoH6yUtq66K.ASjS5yPOfATtAaIQzpAjReGLxb3HdHS', 'user', '2024-02-09 07:50:33', '2024-02-09 07:50:33');
 
 --
 -- Indexes for dumped tables
@@ -91,13 +91,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `survey`
 --
 ALTER TABLE `survey`
-  MODIFY `id_survey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_survey` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
