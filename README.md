@@ -7,11 +7,17 @@
 [https://demo.rezweb.my.id/si-survey](https://demo.rezweb.my.id/si-survey)
   
   
-<h2>🧐 Features</h2>
+<h2>🛠️ Installation Steps:</h2>
 
-Here're some of the project's best features:
+<p>1. Download atau save file ke dalam web server anda contoh : Laragon / XAMPP.</p>
 
-  
+<p>2. Beri nama folder dengan contoh: si-survey.</p>
+
+<p>3. Import database 'si-survey.sql' (bisa melalui PhpMyAdmin).</p>
+
+<p>4. Copy file config.example.php menjadi config.php lalu sesuaikan parameter yang terdapat di dalam file tersebut</p>
+
+<p>5. Selamat Mencoba. Terima kasih :)</p>
   
 <h2>💻 Built with</h2>
 
