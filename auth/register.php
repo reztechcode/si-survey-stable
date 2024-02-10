@@ -8,31 +8,43 @@ if (isset($_POST['send'])) {
     
     $nik = htmlspecialchars($_POST['nik']);
     if (!$validasi->numericValidate($nik) || strlen($nik) > 16 ) {
-        session_start();
+        // session_start();
         $flash->setFlash('Error', 'Terjadi Kesalahan', 'danger');
-        header("location: auth.php?p=info");
+        echo "<script>
+            window.location.href='./auth.php?p=info';
+        </script>";
+        // header("location: auth.php?p=info");
         return false;
     }
 
     $cek = $Auth->RegisterValidate("nik", "users", "nik=$nik");
     if ($cek > 0) {
-        session_start();
+        // session_start();
         $flash->setFlash('Informasi', 'Maaf nomor NIK sudah terdaftar', 'danger');
-        header("location: auth.php?p=info");
+        echo "<script>
+        window.location.href='./auth.php?p=info';
+    </script>";
+        // header("location: auth.php?p=info");
         return false;
     }
         $username = htmlspecialchars($_POST['username']);
         if (empty($username)) {
-            session_start();
+            // session_start();
             $flash->setFlash('Informasi', 'Username wajib di isi!', 'danger');
-            header("location: auth.php?p=info");
+            echo "<script>
+            window.location.href='./auth.php?p=info';
+        </script>";
+            // header("location: auth.php?p=info");
             return false;
         }
         $cek2 = $Auth->RegisterValidate("username", "users", "username='$username'");
         if ($cek2 > 0) { //validasi username check
-            session_start();
+            // session_start();
             $flash->setFlash('Informasi', 'Maaf Username sudah terdaftar', 'danger');
-            header("location: auth.php?p=info");
+            echo "<script>
+            window.location.href='./auth.php?p=info';
+        </script>";
+            // header("location: auth.php?p=info");
             return false;
         }
 

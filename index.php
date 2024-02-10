@@ -1,12 +1,18 @@
 <?php
 require_once './init.php';
-session_start();
+// session_start();
 $auth = new Auth();
 if (!$auth->isLoggedIn()) {  
-    header("location: ./auth.php");
+    echo '<script>
+            window.location.href="./auth.php";
+    </script>';
+    // header("location: ./auth.php");
 }
 if ($auth->isAdmin()){
-    header("location: ./admin.php");
+    echo '<script>
+            window.location.href="./admin.php";
+    </script>';
+    // header("location: ./admin.php");
 }
 ?>
 <!DOCTYPE html>

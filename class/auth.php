@@ -46,7 +46,7 @@ class Auth
             
             if ($stmt->rowCount() > 0) {          
                 if (password_verify($password, $data['password'])) {
-                    session_start();
+                    // session_start();
                     $_SESSION['users'] = $data['nik'];
                     return 200;
                 } else {
