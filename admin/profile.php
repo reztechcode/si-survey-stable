@@ -8,14 +8,18 @@ if (isset($_POST['send'])) {
     $nama = htmlspecialchars($_POST['nama']);
         if (empty($nama)) {
             $flash->setFlash('Informasi', 'Username wajib di isi!', 'danger');
-            header("location: ./admin.php?p=profile");
+            echo '<script>
+                window.location.href="./index.php?p=profile";
+                </script>';
             return false;
         }
 
     $alamat = htmlspecialchars($_POST['alamat']);
         if (empty($alamat)) {
             $flash->setFlash('Informasi', 'Username wajib di isi!', 'danger');
-            header("location: ./admin.php?p=profile");
+            echo '<script>
+                window.location.href="./index.php?p=profile";
+                </script>';
             return false;
         }
 
@@ -27,12 +31,16 @@ if (isset($_POST['send'])) {
     // var_dump($update);
     if ($update >0) {
             $flash->setFlash('Sukses', 'Profile berhasil di perbarui!', 'success');
-            header("location: ./admin.php?p=profile");
+            echo '<script>
+                window.location.href="./index.php?p=profile";
+                </script>';
             return false;
         
     }else{
             $flash->setFlash('Error', 'Silahkan coba lagi 🙏', 'danger');
-            header("location: ./admin.php?p=profile");
+            echo '<script>
+                window.location.href="./index.php?p=profile";
+                </script>';
             return false;
 
     }

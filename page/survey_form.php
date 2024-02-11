@@ -9,12 +9,16 @@ $user = $dbAuth->profile("nama, nik, alamat", "users", "nik=$nik");
 $survei_cek = $survei->count("nik", "survey", "nik=$nik");
 if ($survei_cek > 0) {
     $flash->setFlash('Informasi', 'Maaf sepertinya anda sebelumnya telah melakukan pengisian survei, Terima Kasih', 'warning');
-    header("location: index.php?p=dashboard");
+    echo '<script>
+    window.location.href="./index.php?p=dashboard";
+    </script>';
 }
 // Validasi data diri masih kosong
 if (empty($user['nama'] && $user['alamat'])) {
     $flash->setFlash('Informasi', 'Silahkan lengkapi profil terlebih dahulu untuk melakukan pengisian survei ', 'warning');
-    header("location: index.php?p=profile");
+    echo '<script>
+    window.location.href="./index.php?p=profile";
+    </script>';
 }
 
 if (isset($_POST['send'])) {
@@ -27,7 +31,9 @@ if (isset($_POST['send'])) {
     $saran_masukan = htmlspecialchars($_POST['masukan']);
     if (empty($saran_masukan)) {
         $flash->setFlash('Error', 'Terjadi Kesalahan', 'danger');
-        header("location: index.php?p=dashboard");
+        echo '<script>
+                window.location.href="./index.php?p=dashboard";
+            </script>';
         return false;
     }
     
@@ -44,18 +50,24 @@ if (isset($_POST['send'])) {
     );
     if (!$validasi->numericValidate($nik)) {
         $flash->setFlash('Error', 'Terjadi Kesalahan', 'danger');
-        header("location: index.php?p=dashboard");
+        echo '<script>
+                window.location.href="./index.php?p=dashboard";
+                </script>';
         return false;
     }
 
     $id = $survei->insertSurvey("survey (nik, layanan_kesehatan, layanan_pendidikan, layanan_kebersihan, layanan_pangan, layanan_informasi, saran_masukan)", $data);
     if ($id > 0) {
         $flash->setFlash('Success', 'Survey Berhasil di kirim, terima kasih 😊', 'success');
-        header("location: index.php?p=dashboard");
+        echo '<script>
+                window.location.href="./index.php?p=dashboard";
+                </script>';
         return false;
     } else {
         $flash->setFlash('Error', 'Terjadi Kesalahan2', 'danger');
-        header("location: index.php?p=dashboard");
+        echo '<script>
+                window.location.href="./index.php?p=dashboard";
+                </script>';
         return false;
     }
 }
