@@ -4,7 +4,7 @@ $flash= new Flasher();
 $id = $_GET['id'];
 if (empty($id)) {
     echo '<script>
-    window.location.href="./index.php?p=survey_result";
+    window.location.href="./admin.php?p=survey_result";
     </script>';
             return false;
 }
@@ -15,13 +15,13 @@ $query = $dbSurvey->delete("survey", $data);
 if ($query) {
     $flash->setFlash('Informasi', 'Data berhasil di hapus', 'success');
     echo '<script>
-    window.location.href="./index.php?p=survey_result";
+    window.location.href="./admin.php?p=survey_result";
     </script>';
             return false;
         }else{
             $flash->setFlash('Error', 'Terjadi kesalahan!', 'danger');
             echo '<script>
-            window.location.href="./index.php?p=survey_result";
+            window.location.href="./admin.php?p=survey_result";
             </script>';
                     return false;
 }

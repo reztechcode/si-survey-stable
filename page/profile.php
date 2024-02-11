@@ -2,7 +2,7 @@
 $flash = new Flasher();
 $dbAuth = new Auth();
 $nik = $dbAuth->isLoggedIn();
-$user = $dbAuth->profile("nama, nik, alamat", "users", "nik=$nik");
+$user = $dbAuth->profile("username,nama, nik, alamat", "users", "nik=$nik");
 
 if (isset($_POST['send'])) {
     $nama = htmlspecialchars($_POST['nama']);
@@ -53,7 +53,7 @@ if (isset($_POST['send'])) {
         <div class="col-md-8">
             <div class="card bg-outline-info">
                 <div class="card-header bg-primary">
-                    <h5 class="text-light">Haii - user, Username : usr1</h5>
+                    <h5 class="text-light">Haii - user, Username : <?= $user['username'] ?></h5>
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
@@ -82,7 +82,7 @@ if (isset($_POST['send'])) {
                                 <button type="submit" name="send" class="btn btn-sm btn-primary">Update Profile</button>
                             </div>
                             <div class="col-auto">
-                                <a href="<?= BASE_URL ?>/index.php?p=dashboard" class="btn btn-sm btn-warning">Kembali ke
+                                <a href="<?= BASE_URL ?>index.php?p=dashboard" class="btn btn-sm btn-warning">Kembali ke
                                     dashboard</a>
                             </div>
                         </div>

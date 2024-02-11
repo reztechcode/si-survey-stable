@@ -2,14 +2,14 @@
 $flash = new Flasher();
 $dbAuth = new Auth();
 $nik =$dbAuth->isLoggedIn();
-$user = $dbAuth->profile("nama, nik, alamat", "users" , "nik=$nik");
+$user = $dbAuth->profile("username, nama, nik, alamat", "users" , "nik=$nik");
 
 if (isset($_POST['send'])) {
     $nama = htmlspecialchars($_POST['nama']);
         if (empty($nama)) {
             $flash->setFlash('Informasi', 'Username wajib di isi!', 'danger');
             echo '<script>
-                window.location.href="./index.php?p=profile";
+                window.location.href="./admin.php?p=profile";
                 </script>';
             return false;
         }
@@ -18,7 +18,7 @@ if (isset($_POST['send'])) {
         if (empty($alamat)) {
             $flash->setFlash('Informasi', 'Username wajib di isi!', 'danger');
             echo '<script>
-                window.location.href="./index.php?p=profile";
+                window.location.href="./admin.php?p=profile";
                 </script>';
             return false;
         }
@@ -32,14 +32,14 @@ if (isset($_POST['send'])) {
     if ($update >0) {
             $flash->setFlash('Sukses', 'Profile berhasil di perbarui!', 'success');
             echo '<script>
-                window.location.href="./index.php?p=profile";
+                window.location.href="./admin.php?p=profile";
                 </script>';
             return false;
         
     }else{
             $flash->setFlash('Error', 'Silahkan coba lagi 🙏', 'danger');
             echo '<script>
-                window.location.href="./index.php?p=profile";
+                window.location.href="./admin.php?p=profile";
                 </script>';
             return false;
 
@@ -55,7 +55,7 @@ if (isset($_POST['send'])) {
             <div class="col-md-8">
                 <div class="card bg-outline-info">
                     <div class="card-header bg-primary">
-                        <h5 class="text-light">Haii - user, Username : usr1</h5>
+                        <h5 class="text-light">Haii - user, Username : <?= $user['username'] ?></h5>
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
@@ -87,7 +87,7 @@ if (isset($_POST['send'])) {
                                     <button type="submit" name="send" class="btn btn-sm btn-primary">Update Profile</button>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="<?= BASE_URL ?>/index.php?p=dashboard" class="btn btn-sm btn-warning">Kembali ke
+                                    <a href="<?= BASE_URL ?>index.php?p=dashboard" class="btn btn-sm btn-warning">Kembali ke
                                         dashboard</a>
                                 </div>
                             </div>
