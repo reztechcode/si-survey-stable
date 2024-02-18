@@ -2,8 +2,6 @@
 <?php
 $dbSurvei = new Survei();
 $data = $dbSurvei->getAllData("id_survey ,username,nama, layanan_kesehatan AS lkes, layanan_pendidikan AS lpen, layanan_kebersihan AS lkeb, layanan_pangan AS lp, layanan_informasi AS li,saran_masukan", 'users', 'survey');
-
-
 ?>
 <div class="container">
     <div class="row justify-content-center">

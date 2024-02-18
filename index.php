@@ -6,13 +6,11 @@ if (!$auth->isLoggedIn()) {
     echo '<script>
             window.location.href="./auth.php";
     </script>';
-    // header("location: ./auth.php");
 }
 if ($auth->isAdmin()){
     echo '<script>
             window.location.href="./admin.php";
     </script>';
-    // header("location: ./admin.php");
 }
 ?>
 <!DOCTYPE html>

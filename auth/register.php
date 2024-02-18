@@ -1,5 +1,3 @@
-
-
 <?php 
 $Auth = new Auth();
 $validasi = new Validate();
@@ -52,7 +50,7 @@ if (isset($_POST['send'])) {
     
     $passwd = $_POST['password'];
     if (empty($passwd)) {
-        session_start();
+        // session_start();
         $flash->setFlash('Informasi', 'Password wajib di isi!', 'danger');
         header("location: auth.php?p=info");
         return false;
@@ -68,11 +66,11 @@ if (isset($_POST['send'])) {
     $id = $Auth->register("users(nik, username, password, role )", $data);
 
     if ($id > 0) {
-        session_start();
+        // session_start();
         $flash->setFlash('Informasi', 'Pendaftaran akun berhasil di lakukan, Silahkan Login 🤗', 'success');
         header("location: auth.php");
     } else {
-        session_start();
+        // session_start();
         $flash->setFlash('Informasi', 'Terjadi kesalahan, Silahkan Coba lagi', 'danger');
         header("location: auth.php?p=info");
     }
